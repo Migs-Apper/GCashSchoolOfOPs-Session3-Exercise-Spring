@@ -1,40 +1,9 @@
 {
-  "name": "Spring Boot & Grafana Lab",
-
-  // 1. Use the clean, universal base image.
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-
-  // 2. Add BOTH Java and Docker as features.
+  "name": "Spring Boot Monitoring Lab",
+  "image": "mcr.microsoft.com/devcontainers/java:17",
   "features": {
-    "ghcr.io/devcontainers/features/java:1": {
-      "version": "17",
-      "installMaven": "true"
-    },
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-
-  // The rest of your configuration remains the same.
-  "forwardPorts": [8080, 3000, 9090],
-  "portsAttributes": {
-    "8080": {
-      "label": "Spring App",
-      "onAutoForward": "openBrowser"
-    },
-    "9090": {
-      "label": "Prometheus",
-      "onAutoForward": "notify"
-    },
-    "3000": {
-      "label": "Grafana",
-      "onAutoForward": "notify"
-    }
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "vscjava.vscode-java-pack"
-      ]
-    }
-  },
-  "postCreateCommand": "java -version && mvn --version"
+  "forwardPorts": [8080, 9090, 3000],
+  "postCreateCommand": "mvn clean install"
 }
