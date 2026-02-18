@@ -1,0 +1,43 @@
+{
+  "name": "Spring Boot & Grafana Lab",
+
+  // Use a pre-built Java 17 image. It includes Maven, Gradle, etc.
+  "image": "mcr.microsoft.com/devcontainers/java:1-17-bullseye",
+
+  "features": {
+    // Add Docker-in-Docker support to the Java image
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
+  // Forward all the ports we need
+  "forwardPorts": [8080, 3000, 9090],
+
+  // Configure labels and behavior for each forwarded port
+  "portsAttributes": {
+    "8080": {
+      "label": "Spring App",
+      "onAutoForward": "openBrowser"
+    },
+    "9090": {
+      "label": "Prometheus",
+      "onAutoForward": "notify"
+    },
+    "3000": {
+      "label": "Grafana",
+      "onAutoForward": "notify"
+    }
+  },
+
+  // VS Code specific settings
+  "customizations": {
+    "vscode": {
+      // List of extensions to automatically install
+      "extensions": [
+        "vscjava.vscode-java-pack" // The official Extension Pack for Java
+      ]
+    }
+  },
+
+  // Command to run after the container is created. Good for verification.
+  "postCreateCommand": "java -version && mvn --version"
+}
