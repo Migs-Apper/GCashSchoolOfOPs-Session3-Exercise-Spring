@@ -2,7 +2,7 @@
   "name": "Spring Boot Monitoring Lab",
   "image": "mcr.microsoft.com/devcontainers/java:17",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
   "forwardPorts": [8080, 9090, 3000],
   "postCreateCommand": "mvn clean install"
