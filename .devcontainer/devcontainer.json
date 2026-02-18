@@ -6,7 +6,13 @@
 
   "features": {
     // Add Docker-in-Docker support to the Java image
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "jdkDistro": "ms",
+      "gradleVersion": "latest",
+      "mavenVersion": "none" // Set to "none" as we're manually installing
+    }
   },
 
   // Forward all the ports we need
@@ -33,7 +39,8 @@
     "vscode": {
       // List of extensions to automatically install
       "extensions": [
-        "vscjava.vscode-java-pack" // The official Extension Pack for Java
+        "vscjava.vscode-java-pack", // The official Extension Pack for Java
+        "vmware.vscode-spring-boot"
       ]
     }
   },
