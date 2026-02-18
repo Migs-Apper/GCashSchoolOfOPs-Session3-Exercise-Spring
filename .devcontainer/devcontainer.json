@@ -2,7 +2,7 @@
   "name": "Spring Boot & Grafana Lab",
 
   // Use a pre-built Java 17 image. It includes Maven, Gradle, etc.
-  "image": "mcr.microsoft.com/devcontainers/java:1-17-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/java:1-17-bookworm",
 
   "features": {
     // Add Docker-in-Docker support to the Java image
